@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Type</title>
+</head>
+<body>
+    <div class="style">
+
+        {% for t in types %}
+          <a href="{% url 'detail' t %}">
+            <button>{{t}}</button>
+          </a>
+
+        {%endfor%}
+    
+</body>
+</html>

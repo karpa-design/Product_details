@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .style {
+            width: 90%;
+            max-width: 900px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        thead {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #e9f3ff;
+            transition: background-color 0.3s ease;
+        }
+
+        th {
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            font-size: 15px;
+            color: #333;
+        }
+
+        .empty-message {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="style">
+        <h1>Available Products</h1>
+        <table class="border">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Product Description</th>
+                </tr>
+            </thead>
+            <tbody class="body">
+                {% for t in products %}
+                <tr class="row">
+                    <td>{{ t.name }}</td>
+                    <td>{{ t.price }}</td>
+                    <td>{{ t.description }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3" class="empty-message">No Products Added</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+    </div>
+</body>
+</html>
